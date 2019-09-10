@@ -38,6 +38,15 @@ OR
     flops, params = clever_format([flops, params], "%.3f")
     ```    
     
+##整体使用如下
+    注意使用位置在模型GPU转化之前之前,用于统计计算量
+    input_2 = torch.randn(1, 3, 127, 127)
+    print("*"*10)
+    flops, params = profile(model, inputs=(input_2, ))
+    flops, params = clever_format([flops, params], "%.3f")
+    print(flops,params)
+    exit()
+
 ## Results of Recent Models
 
 The implementation are adapted from `torchvision`. Following results can be obtained using [benchmark/evaluate_famours_models.py](benchmark/evaluate_famous_models.py).
